@@ -1,8 +1,9 @@
+var parseDate = d3.timeParse("%m/%d/%Y");
 
 var arrayX = [1,2,5,8,12];
 console.log(arrayX);
 d3.csv("kzdataB.csv")
-    .row(function(d){ return {x: Number(d.day), price: Number(d.price) };  })
+    .row(function(d){ return {x: Number(d.day), price: d.price };  })
     .get(function(error,data){
       //var mm = d3.max(data, function(d){ return d.m; });
       var height = 90;
@@ -30,7 +31,7 @@ d3.csv("kzdataB.csv")
 
       var svg = d3.select("body").append("svg").attr("height","100%").attr("width","100%");
 
-      var margin = {left:50,right:50,top:40,bottom:0};
+      var margin = {left:150,right:50,top:40,bottom:0};
 
       var chartGroup = svg.append("g")
                   .attr("transform","translate("+margin.left+","+margin.top+")");
