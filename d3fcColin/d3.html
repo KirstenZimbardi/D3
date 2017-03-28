@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3FC test</title>
+		<link rel="stylesheet" type="text/css" href="style.css" >
+		<script type="text/javascript" src="d3.v4.js"></script>
+	</head>
+
+	<body>
+		<p>Just checking</p>
+		<svg id='time-series' style="height: 300px; width: 500px"/>
+		<script>
+
+				function renderChart(data) {
+					var chart = fc.chart.linearTimeSeries()
+													.xDomain(fc.util.extent(data, 'date'))
+													.yDomain(fc.util.extent(data, ['open', 'close']))
+				};
+
+				d3.csv("yahoo.csv")
+					.row(function(d){
+						d.date = new Date(d.Timestamp *1000);
+						return d;
+					})
+					.get(function(error, rows) { renderChart(rows); });
+
+			</script>
+
+  </body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Let's make a bar chart</title>
+		<link rel="stylesheet" type="text/css" href="style.css" >
+		<script type="text/javascript" src="d3.v4.js"></script>
+	</head>
+
+	<body>
+
+	<style>
+		.chart div {
+		font: 14px sans-serif;
+		background-color: steelblue;
+		text-align: right;
+		padding: 5px;
+		margin: 4px;
+		color: white;
+		}
+	</style>
+
+	<style>
+		.chartB div {
+		font: 10px sans-serif;
+		background-color: blue;
+		text-align: right;
+		padding: 3px;
+		margin: 2px;
+		color: white;
+		}
+	</style>
+
+<div class="chart">
+<div style="width: 40px;">4</div>
+<div style="width: 80px;">8</div>
+<div style="width: 150px;">15</div>
+<div style="width: 160px;">16</div>
+<div style="width: 230px;">23</div>
+<div style="width: 420px;">42</div>
+</div>
+
+<div class="chartB">
+<div style="width: 40px;">4</div>
+<div style="width: 80px;">8</div>
+<div style="width: 150px;">15</div>
+</div>
+
+		<script>
+				var data = [4, 8, 15, 16, 23, 42];
+
+				var div = document.createElement("div");
+				div.innerHTML = "Hello, world - hooRAA!!!";
+				document.body.appendChild(div);
+
+				//var body = d3.select("body");
+				//var div = body.append("div");
+				//div.html("Hello, world!");
+
+				//var section = d3.selectAll("section"); // not working
+				//var div = section.append("div"); // not working
+				//div.html("Hello, world!"); // not working
+
+				d3.select("body")
+				    .style("color", "white")
+						.style("font", "24px sans-serif")
+				    .style("background-color", "black");
+
+				//d3.select("section")
+				//    	.attr("class", "special")
+				//	  .append("div")
+				//	    .html("Hello, world!");
+
+				//var section = d3.selectAll("section"); // not working
+				//section.append("div")
+				//    .html("First!");
+				//section.append("div")
+				//    .html("Second
+
+
+
+
+		</script>
+  </body>
+
+</html>

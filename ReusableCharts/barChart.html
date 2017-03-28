@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<style>
+		.chart div {
+		  font: 10px "Comic Sans MS";
+		  background-color: steelblue;
+		  text-align: right;
+		  padding: 3px;
+		  margin: 1px;
+		  color: white;
+		}
+		</style>
+
+		<title>Let's make a bar chart</title>
+
+		<div class="chart"></div> <!-- ok so that's the magic - put the chart div in the header! -->
+
+		<script src="//d3js.org/d3.v4.min.js"></script> <!-- now it doesn't seem to matter if we use v3 or v4 -->
+	</head>
+
+	<body>
+		<p style="font-family:Arial;color:blue;">Checking</p>
+		<script>
+				var data = [4, 8, 15, 16, 23, 42];
+
+				d3.select(".chart")
+					.selectAll("div")
+						.data(data)
+					.enter().append("div")
+						.style("width", function(d) { return d*5+"px"; })
+						.text(function(d) { return d; });
+
+				//var chart = d3.select(".chart");
+				//var bar = chart.selectAll("rect");
+				//var barUpdate = bar.data(data);
+				//var barEnter = barUpdate.enter().append("rect");
+				//barEnter.style("width", function(d) { return d * 10 ; });
+				//barEnter.text(function(d) { return d; });
+
+
+
+
+		</script>
+
+  </body>
+  </html>

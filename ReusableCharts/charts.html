@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Charts test</title>
+		<link rel="stylesheet" type="text/css" href="style.css" >
+		<script type="text/javascript" src="d3.v4.js"></script>
+	</head>
+
+	<body>
+		<p>Just checking again</p>
+		<p id="example">
+
+		<script>
+
+		function chart() {
+				var width = 720, // default width
+					height = 80; // default height
+
+				function my() {
+				// generate chart here, using `width` and `height`
+				}
+
+				my.width = function(value) {
+						if (!arguments.length) return width;
+						width = value;
+						return my;
+				};
+
+				my.height = function(value) {
+						if (!arguments.length) return height;
+						height = value;
+						return my;
+				};
+
+				return my;
+				}
+
+				var chart = d3.timeSeriesChart()
+					.x(function(d) { return formatDate.parse(d.date); })
+					.y(function(d) { return +d.price; });
+
+				var formatDate = d3.time.format("%b %Y");
+
+				d3.csv("sp500.csv", function(data) {
+					d3.select("#example")
+						.datum(data)
+						.call(chart);
+				})
+
+
+
+
+
+
+
+			</script>
+
+  </body>
+
+</html>

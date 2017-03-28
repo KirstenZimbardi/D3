@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3FC test</title>
+		<link rel="stylesheet" type="text/css" href="style.css" >
+		<script type="text/javascript" src="d3.v4.js"></script>
+
+		<script src="layout.js"></script>
+		<script src="d3-financial-components.js"></script>
+
+		<link href="d3-financial-components.css" rel="stylesheet"/>
+	</head>
+
+	<body>
+		<p>Just checking</p>
+		<div id="chart"></div>
+<script type="text/javascript">
+var data = fc.dataGenerator()(50);
+
+var chart = fc.charts.linearTimeSeries()
+    .xDomain(fc.utilities.extent(data, 'date'))
+    .xTicks(5)
+    .yDomain(fc.utilities.extent(data, ['high', 'low']))
+    .yNice()
+    .yTicks(5);
+
+var gridlines = fc.scale.gridlines();
+var candlestick = fc.series.candlestick();
+var movingAverage = fc.indicators.movingAverage();
+
+var multi = fc.series.multi()
+    .series([gridlines, candlestick, movingAverage]);
+chart.plotArea(multi);
+
+d3.select("#chart")
+    .append('svg')
+    .style({
+        height: '250px',
+        width: '600px'
+    })
+    .datum(data)
+    .call(chart);
+
+</script>
+  </body>
+
+</html>
